@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/gallery.css" %}">
+
+    <title>Gallery</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>Wellcome To The Bikers Mart</h1>
+      <h2>Showrooms Nearby</h2>
+    </div>
+
+    <div class="gallery1">
+      {% if showroom_names %}
+      <table>
+        <thead>
+          <th>Pictures</th>
+          <th>Showrooms</th>
+          <!-- <th>Adress</th> -->
+        </thead>
+        {% for showrooms in showroom_names %}
+        <tr>
+          <td> <img src="#" alt="showroom_pic"> </td>
+          <td>{{ showrooms.company_name}}</td>
+          <!-- <td>{{showrooms.adress}}</td> -->
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>No Showroom Found</p>
+      {% endif %}
+
+    </div>
+
+  </body>
+</html>

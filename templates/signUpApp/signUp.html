@@ -1,0 +1,20 @@
+
+{% extends "signInApp/signIn.html" %}
+{% load static %}
+
+{% block wellcome_block %}
+{% if registered %}
+  <h1>Thank You For Registration!</h1><br>
+  <h3>Please Log In To Continue</h3>
+{% else %}
+        <h1>Sign Up Page</h1><br>
+        <h2>Fill With Correct Informations</h2>
+        <form method="POST" enctype="multipart/form-data">
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          {% csrf_token %}
+          <input type="submit" class='btn btn-primary' value="submit">
+        </form>
+        {% endif %}
+
+{% endblock %}

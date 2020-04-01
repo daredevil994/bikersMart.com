@@ -1,0 +1,27 @@
+{% extends "signInApp/signIn.html" %}
+
+  {% block wellcome_block %}
+  <h2>Update Profile</h2>
+  {% if update_user %}
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'myProfileApp:my_profile' %}">
+      {{ update_user.as_p }}
+      <!-- {% if profile_dict %}
+      <img src="{{profile_dict.image.url}}" alt="profile_pic">
+      {% else %}
+      <img src="{{default.img}}" alt="default">
+      {% endif %} -->
+      {{ update_profile.as_p }}
+      {% csrf_token %}
+      <input type="submit" class='btn btn-outline-dark btn-lg btn-block' value="Update And Back">
+    </form>
+    <!-- <button class="btn btn-outline-dark btn-lg btn-block"  href="myProfileApp:my_profile" type="button">Back To Profile</i></button> -->
+  {% else %}
+      <h2>No Profile Found</h2>
+  {% endif %}
+
+  {% endblock %}
+
+  {% block gallery_block %}
+
+  {% endblock %}

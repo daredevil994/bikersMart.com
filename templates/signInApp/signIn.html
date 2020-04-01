@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+{% extends "base.html" %}
+  {% block body_block %}
+    <div class="jumbotron">
+
+
+      {% block wellcome_block %}
+        <h1 id="wellcome">Wellcome To The Bikers Mart</h1><br>
+        <p id="description_box">Description</p>
+      {% endblock %}
+
+    </div>
+
+    {% block gallery_block %}
+      <div class="jambotron">
+          <h1>Log In!</h1>
+          <p>Enter your email and password to log in</p>
+          <form method="POST" action="{% url 'signInApp:user_login' %}" >
+              {% csrf_token %}
+              <label for="username">Username:</label>
+              <input type="text" name="username" placeholder="Enter username here">
+              <br>
+              <label for="password">Password:</label>
+              <input type="password" name="password">
+              <input type="submit" class='btn btn-primary' value="Log In">
+          </form>
+      </div>
+      <div class="jumbotron">
+            <h3>If you don't have an account please <a id='sign_up_here' href="{% url 'signUpApp:sign_up_form_view' %}">Click Here!</a> to <a id='sign_up_here' href="{% url 'signUpApp:sign_up_form_view' %}">SIGN UP</a>.</h3>
+      </div>
+  {% endblock %}
+{% endblock %}

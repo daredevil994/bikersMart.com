@@ -1,0 +1,38 @@
+{% extends "signInApp/signIn.html" %}
+
+  {% block wellcome_block %}
+
+  {% if profile %}
+    <h2>My Profile</h2>
+      <img src="{{profile.image.url}}" alt="profile_pic">
+      <h4>Full Name : {{profile.first_name}} {{profile.last_name}}</h4>
+      <h4>Username : {{ profile.username }}</h4>
+      <h4>Email : {{profile.email }}</h4>
+      <h4>Birthdate : {{profile.birthdate}} </h4>
+      <h4>Gender : {{profile.gender}}</h4>
+      <h4>Relationship Status : {{profile.marital_status}}</h4>
+      <p>Address : {{profile.address}} </p>
+      <p>Bio : {{profile.bio}} </p>
+
+      <a href="{% url 'myProfileApp:settings_view' %}"><button class='btn btn-outline-dark btn-lg btn-block' type="button" name="button">Settings & Privacy</button></a>
+      <!-- <button class="btn btn-outline-dark btn-lg btn-block"  href="{% url 'myProfileApp:settings_view' %}" type="button"><i>Settings & Privacy</i></button> -->
+  {% else %}
+      <h2>No Profile Found</h2>
+  {% endif %}
+
+  {% endblock %}
+
+  {% block gallery_block %}
+  <h2>Post Here</h2>
+  {% if post_form %}
+  <form action="{% url 'postApp:create_post' %}" method="POST"  enctype="multipart/form-data">
+    {{ post_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Post">
+
+  </form>
+  {% else %}
+  <h2><a href="#">Create A Post</a></h2>
+  {% endif %}
+
+  {% endblock %}
