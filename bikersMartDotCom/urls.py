@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$',views.index, name="index"),
-    url(r'^postApp/',include('postApp.urls')),
+    
     # url(r'^myProfileApp/',views.profile_view,name='profile_view'),
     url(r'^logout/$',views.user_logout,name="logout"),
     url(r'^signInApp/',include('signInApp.urls')),

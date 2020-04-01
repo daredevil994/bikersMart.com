@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'myProfileApp',
     'signUpApp',
     'signInApp',
-    'postApp',
-    'blog',
 ]
 
 MIDDLEWARE = [
